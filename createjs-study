@@ -13,7 +13,7 @@
             circle.x = 200;
             circle.y = 200;
             stage.addChild(circle);
-            //绘制的一个部分
+            //绘制的一个圆
            
             stage.update();
         }
