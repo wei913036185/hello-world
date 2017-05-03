@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="easeljs-0.8.2.min.js"></script>
+    <script>
+        function init() {
+            var stage = new createjs.Stage('oSmile');
+            var circle = new createjs.Shape();
+            var eyeLeft = new createjs.Shape();
+            var eyeRight = new createjs.Shape();
+            var nose = new createjs.Shape();
+            var mouth = new createjs.Shape();
+            var mouth1 = new createjs.Shape();
+            var i = 0;
+            var k = 0;
+            //实例化图形的组件
+
+            function move() {
+                i = Math.random(0,1)*1116;
+                k = Math.random(0,1)*450;
+
+                circle.graphics.clear();
+                eyeRight.graphics.clear();
+                eyeLeft.graphics.clear();
+                nose.graphics.clear();
+                mouth1.graphics.clear();
+                mouth.graphics.clear();
+                //清空每个组件（动态时每次重构图形都要清空原有的，不然会影响动画效果）
+
+                circle.graphics.beginFill("yellow").drawCircle(250+i,250+k,250);
+                eyeLeft.graphics.beginFill("rgba(0,0,20,5)").de(125+i,150+k,20,40).ef();
+                eyeRight.graphics.f("rgba(0,0,20,5)").de(375+i,150+k,20,40).ef();
+                nose.graphics.f("rgba(0,0,20,5)").dc(250+i,250+k,10).ef();
+                mouth.graphics.f("red").de(190+i,375+k,125,50).ef();
+                mouth1.graphics.f("yellow").de(175+i,360+k,155,60).ef();
+                //创建图形的各个组件的样式
+
+                stage.addChild(circle);
+                stage.addChild(eyeLeft);
+                stage.addChild(eyeRight);
+                stage.addChild(nose);
+                stage.addChild(mouth);
+                stage.addChild(mouth1);
+                //给stage舞台添加所构建的组件
+
+                stage.update()
+                //刷新stage舞台
+            }
+           var timer = setInterval(move,1000);
+
+        }
+    </script>
+</head>
+<body onload="init()
+">
+    <canvas id="oSmile" width="1366" height="700">
+
+    </canvas>
+</body>
+</html>
